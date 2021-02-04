@@ -9,9 +9,9 @@ engine_screen_manager_display_on:
 ;          ||`----- 28 row/224 line mode
 ;          |`------ VBlank interrupts
 ;          `------- Enable display
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ld a,$81
-    out ($bf),a  
+    out (VDP_CONTROL_PORT),a  
 
     ret
     

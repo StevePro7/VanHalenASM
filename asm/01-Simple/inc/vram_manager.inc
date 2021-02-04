@@ -6,7 +6,7 @@ engine_vram_manager_load_vdpreg:
     ;==============================================================
     ld hl,VdpData
     ld b,VdpDataEnd-VdpData
-    ld c,$bf
+    ld c,VDP_CONTROL_PORT
     otir
     ret
 
@@ -14,9 +14,9 @@ engine_vram_manager_load_vdpreg:
 engine_vram_manager_clear_vram:
 
     ld a,$00
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ld a,$40
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ; 2. Output 16KB of zeroes
     ld bc, $4000    ; Counter for 16KB of VRAM
     ClearVRAMLoop:
@@ -31,9 +31,9 @@ engine_vram_manager_clear_vram:
 
 engine_vram_manager_load_palette:
     ld a,$00
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ld a,$c0
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ; 2. Output colour data
     ld hl,PaletteData
     ld b,(PaletteDataEnd-PaletteData)
@@ -44,9 +44,9 @@ engine_vram_manager_load_palette:
 
 engine_vram_manager_load_tiles:
     ld a,$00
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ld a,$40
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ; 2. Output tile data
     ld hl,FontData              ; Location of tile data
     ld bc,FontDataEnd-FontData  ; Counter for number of bytes to write

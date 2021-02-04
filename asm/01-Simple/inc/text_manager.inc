@@ -2,9 +2,9 @@
 
 engine_text_manager_write_text:
     ld a,$00
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ld a,$38|$40
-    out ($bf),a
+    out (VDP_CONTROL_PORT),a
     ; 2. Output tilemap data
     ld hl,Message
     ld bc,MessageEnd-Message  ; Counter for number of bytes to write

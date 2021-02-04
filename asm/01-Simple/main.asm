@@ -1,5 +1,6 @@
 .sdsctag 1.0,"Hello World","Simple Sega Master System demo to run on real hardware","StevePro Studios"
 
+.include "variables.inc"
 .include "main.inc"
 
 
