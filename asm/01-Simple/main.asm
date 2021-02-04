@@ -1,4 +1,5 @@
 .sdsctag 1.0,"Hello World","Simple Sega Master System demo to run on real hardware","StevePro Studios"
+
 .include "main.inc"
 
 
@@ -131,9 +132,6 @@ Loop:
 
 
 
-PaletteData:
-.db $00,$3f
-PaletteDataEnd:
 
 ; VDP initialisation data
 VdpData:
@@ -141,3 +139,5 @@ VdpData:
 VdpDataEnd:
 
 
+
+;.include "data.inc"
