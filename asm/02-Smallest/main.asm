@@ -41,7 +41,7 @@ _LABEL_70_:
     call _SMS_init
     ei
     call main
-    ;jp exit
+    jp exit
 
     
     ; Infinite loop to stop program
@@ -49,10 +49,29 @@ Loop:
      jp Loop
 
 
+stevepro:
+    ld hl, $3000
+    push hl
+    call _SMS_setSpritePaletteColor
+    pop af
+    ret
+
+main:
+    call stevepro
+    
+loop:
+    call _SMS_waitForVBlank
+    jr loop
 
 
-
-
+exit:
+    ld a, $00
+    rst $08
+-:
+    halt
+    jr -
+    
+    
 _DATA_56B_:	
 	.db $04 $20 $08 $00 $08 $00
 
@@ -175,4 +194,31 @@ _SMS_copySpritestoSAT:
 _SMS_resetPauseRequest:	
 		ld hl, PauseRequested	; PauseRequested = $C001
 		ld (hl), $00
+		ret
+        
+        
+_SMS_setSpritePaletteColor:	
+		ld hl, $0002
+		add hl, sp
+		ld a, (hl)
+		set 4, a
+		di
+		out (Port_VDPAddress), a
+		ld a, $C0
+		out (Port_VDPAddress), a
+		ei
+		ld hl, $0003
+		add hl, sp
+		ld a, (hl)
+		out (Port_VDPData), a
+		ret
+        
+        
+_SMS_waitForVBlank:	
+		ld hl, VDPBlank	; VDPBlank = $C000
+		ld (hl), $00
+-:	
+		ld hl, VDPBlank	; VDPBlank = $C000
+		bit 0, (hl)
+		jr z, -
 		ret
