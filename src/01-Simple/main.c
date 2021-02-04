@@ -1,8 +1,13 @@
 #include "SMSlib.h"
 
+void stevepro()
+{
+  SMS_setSpritePaletteColor(0, RGB(3,3,0));
+}
+
 void main (void)
 {
-  SMS_setSpritePaletteColor(0, RGB(3,0,0));
+  stevepro();
   for (;;)
   {
     SMS_waitForVBlank();
