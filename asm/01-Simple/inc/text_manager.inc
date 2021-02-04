@@ -10,7 +10,7 @@ engine_text_manager_write_text:
     ld bc,MessageEnd-Message  ; Counter for number of bytes to write
     WriteTextLoop:
         ld a,(hl)    ; Get data byte
-        out ($be),a
+        out (VDP_DATA_PORT),a
         inc hl       ; Point to next letter
         dec bc
         ld a,b

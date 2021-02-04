@@ -21,7 +21,7 @@ engine_vram_manager_clear_vram:
     ld bc, $4000    ; Counter for 16KB of VRAM
     ClearVRAMLoop:
         ld a,$00    ; Value to write
-        out ($be),a ; Output to VRAM address, which is auto-incremented after each write
+        out (VDP_DATA_PORT),a ; Output to VRAM address, which is auto-incremented after each write
         dec bc
         ld a,b
         or c
@@ -37,7 +37,7 @@ engine_vram_manager_load_palette:
     ; 2. Output colour data
     ld hl,PaletteData
     ld b,(PaletteDataEnd-PaletteData)
-    ld c,$be
+    ld c,VDP_DATA_PORT
     otir
     ret
 
@@ -54,7 +54,7 @@ engine_vram_manager_load_tiles:
         ; Output data byte then three zeroes, because our tile data is 1 bit
         ; and must be increased to 4 bit
         ld a,(hl)        ; Get data byte
-        out ($be),a
+        out (VDP_DATA_PORT),a
         inc hl           ; Add one to hl so it points to the next data byte
         dec bc
         ld a,b
