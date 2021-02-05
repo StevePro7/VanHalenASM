@@ -1,7 +1,10 @@
 #include "main.h"
 
+
 void main (void)
 {
+  engine_content_manager_load_tiles();
+  
   for (;;)
   {
     SMS_waitForVBlank();

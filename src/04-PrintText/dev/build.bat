@@ -31,4 +31,5 @@ if exist "*.map" del "*.map" > nul
 if exist "*.noi" del "*.noi" > nul
 if exist "*.sym" del "*.sym" > nul
 
-output.sms
+::output.sms
+java -jar C:\SEGA\Emulicious\emulicious.jar output.sms
