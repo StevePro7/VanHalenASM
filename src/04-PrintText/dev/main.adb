@@ -73,6 +73,6 @@ S:G$engine_font_manager_draw_char$0$0({2}DF,SV:S),C,0,0
 S:G$engine_font_manager_draw_text$0$0({2}DF,SV:S),C,0,0
 S:G$engine_font_manager_draw_data$0$0({2}DF,SV:S),C,0,0
 S:G$main$0$0({2}DF,SV:S),C,0,0
-S:Fmain$__str_0$0$0({17}DA17d,SC:S),Z,0,0
-S:Fmain$__str_1$0$0({12}DA12d,SC:S),Z,0,0
-S:Fmain$__str_2$0$0({55}DA55d,SC:S),Z,0,0
+S:Fmain$__str_1$0$0({17}DA17d,SC:S),Z,0,0
+S:Fmain$__str_2$0$0({12}DA12d,SC:S),Z,0,0
+S:Fmain$__str_3$0$0({55}DA55d,SC:S),Z,0,0
