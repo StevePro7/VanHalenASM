@@ -2,6 +2,12 @@
 
 void main(void)
 {
+	SMS_init();
+	SMS_displayOff();
+	engine_content_manager_load_tiles();
+	engine_font_manager_draw_text( "STEVEN", 10, 10 );
+	SMS_displayOn();
+
 	for (;;)
 	{
 		SMS_waitForVBlank();
