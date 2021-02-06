@@ -16,7 +16,8 @@ void main(void)
 		input = engine_input_manager_hold( input_type_down );
 		if( input )
 		{
-			engine_font_manager_draw_text( "WORLD", 10, 11 );
+			engine_font_manager_draw_text( "THERE", 10, 11 );
+			engine_audio_manager_sfx_play();
 		}
 
 		SMS_waitForVBlank();

@@ -5,6 +5,7 @@ sdcc --debug -c -mz80 --std-sdcc99 gfx.c
 sdcc --debug -c -mz80 --std-sdcc99 psg.c
 
 cd engine
+sdcc --debug -c -mz80 --std-sdcc99 audio_manager.c
 sdcc --debug -c -mz80 --std-sdcc99 content_manager.c
 sdcc --debug -c -mz80 --std-sdcc99 enum_manager.c
 sdcc --debug -c -mz80 --std-sdcc99 font_manager.c
@@ -20,6 +21,7 @@ sdcc --debug -o output.ihx --Werror --opt-code-speed -mz80 --no-std-crt0 --data-
 main.rel ^
 ..\lib\SMSlib.lib ^
 ..\lib\PSGlib.rel ^
+engine\audio_manager.rel ^
 engine\content_manager.rel ^
 engine\font_manager.rel ^
 engine\enum_manager.rel ^
