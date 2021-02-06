@@ -1,8 +1,13 @@
 @echo off
 
 echo Build
+sdcc --debug -c -mz80 --std-sdcc99 gfx.c
 sdcc --debug -c -mz80 --std-sdcc99 psg.c
 
+cd engine
+sdcc --debug -c -mz80 --std-sdcc99 content_manager.c
+sdcc --debug -c -mz80 --std-sdcc99 font_manager.c
+cd ..
 
 sdcc --debug -c -mz80 --std-sdcc99 main.c
 
@@ -12,13 +17,15 @@ sdcc --debug -o output.ihx --Werror --opt-code-speed -mz80 --no-std-crt0 --data-
 ..\crt0\crt0_sms.rel ^
 main.rel ^
 ..\lib\SMSlib.lib ^
+..\lib\PSGlib.rel ^
 engine\content_manager.rel ^
 engine\font_manager.rel ^
-gfx.rel
+gfx.rel ^
+psg.rel
 
 
 
-REM echo Binary output
+echo Run
 ihx2sms output.ihx output.sms
 
 

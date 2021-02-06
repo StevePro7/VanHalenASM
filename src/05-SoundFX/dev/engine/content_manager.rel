@@ -1,0 +1,47 @@
+;!FILE content_manager.asm
+XL2
+H 9 areas 1B global symbols
+M content_manager
+O -mz80
+S G$ROM_bank_to_be_mapped_on_slot2$0$0 DefFFFF
+S G$SRAM_bank_to_be_mapped_on_slot2$0$0 DefFFFC
+S _ROM_bank_to_be_mapped_on_slot2 DefFFFF
+S G$SMS_SRAM$0$0 Def8000
+S _SRAM_bank_to_be_mapped_on_slot2 DefFFFC
+S _font__tiles__psgcompr Ref0000
+S .__.ABS. Def0000
+S _SMS_SRAM Def8000
+S _SMS_loadBGPalette Ref0000
+S _SMS_loadPSGaidencompressedTiles Ref0000
+S _font__palette__bin Ref0000
+A _CODE size 13 flags 0 addr 0
+S C$content_manager.c$11$1$58 Def0000
+S C$content_manager.c$12$1$58 Def000D
+S C$content_manager.c$13$1$58 Def0010
+S G$engine_content_manager_load_tiles$0$0 Def0000
+S A$content_manager$70 Def0008
+S A$content_manager$71 Def000B
+S A$content_manager$81 Def0010
+S A$content_manager$72 Def000C
+S _engine_content_manager_load_tiles Def0000
+S A$content_manager$66 Def0000
+S A$content_manager$76 Def000D
+S A$content_manager$67 Def0003
+S A$content_manager$68 Def0004
+S A$content_manager$69 Def0007
+S C$content_manager.c$9$0$0 Def0000
+S XG$engine_content_manager_load_tiles$0$0 Def0010
+A _DATA size 0 flags 0 addr 0
+A _INITIALIZED size 0 flags 0 addr 0
+A _DABS size 0 flags 8 addr 0
+A _HOME size 0 flags 0 addr 0
+A _GSINIT size 0 flags 0 addr 0
+A _GSFINAL size 0 flags 0 addr 0
+A _INITIALIZER size 0 flags 0 addr 0
+A _CABS size 0 flags 8 addr 0
+T 00 00
+R 00 00 00 00
+T 00 00 21 00 00 E5 21 00 00 E5 CD 00 00 F1 F1 21
+R 00 00 00 00 02 07 05 00 02 0B 09 00
+T 0E 00 00 00 C3 00 00
+R 00 00 00 00 02 02 0A 00 02 05 08 00
