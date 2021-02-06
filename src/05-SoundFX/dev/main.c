@@ -2,14 +2,23 @@
 
 void main(void)
 {
+	unsigned char input;
+
 	SMS_init();
 	SMS_displayOff();
 	engine_content_manager_load_tiles();
-	engine_font_manager_draw_text( "STEVEN", 10, 10 );
+	engine_font_manager_draw_text( "HELLO", 10, 10 );
 	SMS_displayOn();
 
 	for (;;)
 	{
+		engine_input_manager_update();
+		input = engine_input_manager_hold( input_type_down );
+		if( input )
+		{
+			engine_font_manager_draw_text( "WORLD", 10, 11 );
+		}
+
 		SMS_waitForVBlank();
 
 		PSGFrame();

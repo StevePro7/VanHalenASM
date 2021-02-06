@@ -6,7 +6,9 @@ sdcc --debug -c -mz80 --std-sdcc99 psg.c
 
 cd engine
 sdcc --debug -c -mz80 --std-sdcc99 content_manager.c
+sdcc --debug -c -mz80 --std-sdcc99 enum_manager.c
 sdcc --debug -c -mz80 --std-sdcc99 font_manager.c
+sdcc --debug -c -mz80 --std-sdcc99 input_manager.c
 cd ..
 
 sdcc --debug -c -mz80 --std-sdcc99 main.c
@@ -20,6 +22,8 @@ main.rel ^
 ..\lib\PSGlib.rel ^
 engine\content_manager.rel ^
 engine\font_manager.rel ^
+engine\enum_manager.rel ^
+engine\input_manager.rel ^
 gfx.rel ^
 psg.rel
 
@@ -39,6 +43,6 @@ if exist "*.noi" del "*.noi" > nul
 if exist "*.sym" del "*.sym" > nul
 
 
-::C:\SEGA\Fusion\fusion.exe output.sms
+C:\SEGA\Fusion\fusion.exe output.sms
 :: C:\SEGA\Meka\mekaw.exe output.sms
 ::java -jar C:\SEGA\Emulicious\emulicious.jar output.sms
